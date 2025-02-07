@@ -1,0 +1,29 @@
+@startuml
+
+class Habitacion {
+    - String nombre
+    - double metrosCuadrados
+    + Habitacion(String, double)
+    + double getMetrosCuadrados()
+    + void setMetrosCuadrados(double)
+    + void setNombre(String)
+    + String getNombre()
+    + String toString()
+}
+
+class Casa {
+    - String direccion
+    - List<Habitacion> habitaciones
+    + Casa(String)
+    + void agregarHabitacion(String, double)
+    + void mostrarHabitaciones()
+    + Habitacion getHabitacionMasGrande()
+}
+
+class AppCasa {
+    + main(String[] args)
+}
+
+Casa "1" *-- "many" Habitacion : tiene >
+
+@enduml

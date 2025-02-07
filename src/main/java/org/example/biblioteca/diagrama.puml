@@ -1,0 +1,60 @@
+@startuml
+
+package org.example.biblioteca {
+    class Estudiante {
+        - String nombre
+        - String curso
+        - int nia
+        - String email
+        - ArrayList<Libro> librosPrestados
+        + Estudiante(String nombre)
+        + Estudiante(String nombre, String curso, String email)
+        + String getNombre()
+        + String getCurso()
+        + int getNia()
+        + String getEmail()
+        + ArrayList<Libro> getLibrosPrestados()
+        + void anyadirLibro(Libro libro)
+        + boolean borrarLibro(Libro libro)
+    }
+
+    class Libro {
+        - String titulo
+        - String autor
+        - String isbn
+        + Libro(String titulo, String autor, String isbn)
+        + String getTitulo()
+        + String getAutor()
+        + String getIsbn()
+    }
+
+    class Prestamo {
+        - Estudiante estudiante
+        - Libro libro
+        - LocalDate fecha
+        + Prestamo(Estudiante estudiante, Libro libro)
+        + Estudiante getEstudiante()
+        + Libro getLibro()
+        + LocalDate getFecha()
+    }
+
+    class Editorial {
+        - String nombre
+        - String pais
+        - List<Libro> librosPublicados
+        + Editorial(String nombre, String pais)
+        + String getNombre()
+        + String getPais()
+        + void anyadirLibro(Libro libro)
+        + void borrarLibro(Libro libro)
+    }
+
+    Estudiante "1" o-- "0.." Libro : presta >
+    Estudiante "1" -- "0..*" Prestamo : realiza >
+    Libro "1" -- "1" Editorial : pertenece a >
+    Prestamo "1" -- "1" Libro : incluye >
+    Prestamo "1" -- "1" Estudiante : realizado por >
+}
+
+@enduml
+

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.casa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,10 @@ public class Casa {
 
     public void mostrarHabitaciones() {
         System.out.println("Casa en " + direccion + " tiene las siguientes habitaciones: " + habitaciones);
+    }
+
+    public Habitacion getHabitacionMasGrande() {
+        
     }
 }
 

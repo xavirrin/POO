@@ -69,21 +69,6 @@ public class Estudiante {
         return librosPrestados.remove(libro);
     }
 
-    @Override
-    public String toString() {
-        StringBuilder libros = new StringBuilder();
-        if (!librosPrestados.isEmpty()) {
-            for (Libro libro : librosPrestados) {
-                libros.append(libro.getTitulo()).append(", ");
-            }
-            libros.setLength(libros.length() - 2); // Eliminar la última coma y espacio
-        } else {
-            libros.append("No tiene libros prestados");
-        }
-
-        return "Alumno: [nombre=" + nombre + ", curso=" + curso + ", nia=" + nia +
-                ", email=" + email + ", librosPrestados=" + libros + "]";
-    }
 
     public static int obtenerTotalEstudiantes() {
         return contadorEstudiantes;
@@ -92,4 +77,11 @@ public class Estudiante {
     public static boolean validarCorreo(String email) {
         return email != null && email.matches(FORMATO_CORREO);
     }
+
+    @Override
+    public String toString() {
+        return "Alumno: [nombre=" + nombre + ", curso=" + curso + ", nia=" + nia +
+                ", email=" + email + ", librosPrestados=" + librosPrestados + "]";
+    }
+
 }

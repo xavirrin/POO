@@ -1,4 +1,4 @@
-package org.example;
+package org.example.casa;
 
 public class AppCasa {
 
@@ -11,6 +11,7 @@ public class AppCasa {
         casa.agregarHabitacion("Baño", 10);
 
         casa.mostrarHabitaciones();
+
 
     }
 }
