@@ -1,0 +1,47 @@
+@startuml
+package "org.example.ecommerce" {
+
+    class AppEcommerce {
+        + main(String[] args)
+    }
+
+    abstract class MetodoPago {
+        + procesarPago(double importe)
+    }
+
+    class Tienda {
+        + realizarPago(MetodoPago metodo, double importe)
+        + iniciarPago()
+        - static TarjetaCredito crearTarjeta()
+        - static PayPal crearPayPal()
+        - static Bizum crearBizum()
+    }
+
+    class TarjetaCredito {
+        - nro_tarjeta: String
+        - tipo: String
+        + TarjetaCredito(String nro_tarjeta, String tipo)
+        + procesarPago(double importe)
+    }
+
+    class PayPal {
+        - cuenta: String
+        - saldo: double
+        + PayPal(String cuenta, double saldo)
+        + procesarPago(double importe)
+    }
+
+    class Bizum {
+        - telefono: String
+        - pin: int
+        + Bizum(String telefono)
+        + procesarPago(double importe)
+    }
+
+    AppEcommerce --> Tienda : "Usa"
+    MetodoPago <|-- TarjetaCredito
+    MetodoPago <|-- PayPal
+    MetodoPago <|-- Bizum
+    Tienda --> MetodoPago : "Selecciona"
+}
+@enduml
