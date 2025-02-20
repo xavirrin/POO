@@ -22,8 +22,6 @@ public class Casa {
         System.out.println("Casa en " + direccion + " tiene las siguientes habitaciones: " + habitaciones);
     }
 
-    public Habitacion getHabitacionMasGrande() {
-        
-    }
+
 }
 
